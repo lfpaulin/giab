@@ -1,23 +1,9 @@
 #!/bin/bash
-#SBATCH --job-name=HG008
-#SBATCH --ntasks=2
-#SBATCH --mem=4
-#SBATCH --time=3-00:00:00
-#SBATCH --partition=medium
-#SBATCH --account=proj-fs0002
-#SBATCH --output=log_hg008_2.out
-#SBATCH --error=log_hg008_2.err
-#SBATCH --chdir="/stornext/snfs4/next-gen/scratch/luis/smaht/analysis/giab/hg008/240522/igv"
-
-# CONDA
-. /stornext/snfs130/fritz/luis/miniconda3_py310_24_3/etc/profile.d/conda.sh
-conda activate smaht
-
 # tmp dir
-TMPDIR="/space1/tmp/slurm.$SLURM_JOB_ID"
+TMPDIR=$1
 
 # final dir
-RESDIR="/stornext/snfs4/next-gen/scratch/luis/smaht/analysis/giab/hg008/240522/igv"
+RESDIR=$2
 
 # DATA
 hg008_t_ont_ul="https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data_somatic/HG008/Liss_lab/UCSC_ONT-UL_20231207/HG008-T_GRCh38_GIABv3_ONT-UL-R10.4.1-dorado0.4.3_sup4.2.0_5mCG_5hmCG_54x_UCSC_20231031.bam"
